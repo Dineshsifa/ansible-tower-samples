@@ -1,7 +1,15 @@
-- name: Hello World Sample
+---
+- name: test chocolatey with ansible
   hosts: all
   tasks:
-    - name: Hello Message
-      debug:
-        msg: "Hello World!"
+    - name: Install 7zip from a network share specifying the credentials
+      win_package:
+#       path:\\ZIPPYOPS\software\firefox\putty-64bit-0.70-installer.msi
+        path: https://the.earth.li/~sgtatham/putty/latest/w64/putty-64bit-0.70-installer.msi
+        product_id: '{7E8A5A47-BBB1-4768-B81A-4011665FF73B}'
+        state: present
+        #ansible_become_user: ZIPPYOPS\zippyops
+       # ansible_become_pass: zippyops
 
+~                                                                               
+~                                                
